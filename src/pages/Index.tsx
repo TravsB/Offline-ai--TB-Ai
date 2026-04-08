@@ -54,7 +54,6 @@ const Index = () => {
 
       <FloatingActions
         onEmergency={() => setEmergencyOpen(true)}
-        onToggleSidebar={() => setSidebarOpen(true)}
       />
     </div>
   );

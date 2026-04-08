@@ -1,4 +1,4 @@
-import { Leaf, Menu, HelpCircle } from "lucide-react";
+import { Leaf, Menu, HelpCircle, BookOpen } from "lucide-react";
 
 interface NavbarProps {
   onToggleSidebar: () => void;
@@ -28,9 +28,9 @@ const Navbar = ({ onToggleSidebar, onHelp }: NavbarProps) => {
           </button>
           <button
             onClick={onToggleSidebar}
-            className="p-2 rounded-lg hover:bg-muted/60 transition-colors text-muted-foreground hover:text-foreground md:hidden"
+            className="p-2 rounded-lg hover:bg-muted/60 transition-colors text-muted-foreground hover:text-foreground"
           >
-            <Menu className="w-5 h-5" />
+            <BookOpen className="w-5 h-5" />
           </button>
         </div>
       </div>
