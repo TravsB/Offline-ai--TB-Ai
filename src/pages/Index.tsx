@@ -25,6 +25,7 @@ const Index = () => {
     renameConversation,
     clearAll,
     selectConversation,
+    isLoading,
   } = useChatHistory();
 
   const handleSelectTopic = useCallback((topicId: string) => {
@@ -83,12 +84,21 @@ const Index = () => {
         />
 
         <main className="flex-1 overflow-hidden">
-          <ChatInterface
-            conversation={currentConversation}
-            onAddMessage={addMessage}
-            onUpdateLastAssistant={updateLastAssistant}
-            onCreateNew={createNew}
-          />
+          {isLoading ? (
+            <div className="flex-1 flex items-center justify-center h-full">
+              <div className="text-center space-y-4">
+                <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+                <p className="text-sm text-muted-foreground">Loading conversations...</p>
+              </div>
+            </div>
+          ) : (
+            <ChatInterface
+              conversation={currentConversation}
+              onAddMessage={addMessage}
+              onUpdateLastAssistant={updateLastAssistant}
+              onCreateNew={createNew}
+            />
+          )}
         </main>
       </div>
 
